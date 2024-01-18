@@ -1,0 +1,73 @@
+<%- include("partials/header.ejs") %>
+
+<div class="nav">
+    <ul>
+   <li><h2>WELCOME TO YOUR TODO LIST</h2></li>
+  
+</ul>
+</div>
+<div class="quotes1">
+<% if(locals.quorts){%>
+    <h2 class="qh">Quotes:</h2>
+    <h3 class="q"><%=quorts%></h3>
+<%}%>
+</div>
+<div class="m" >
+<div class="main" id="work" >
+    <h2>FOR WORK</h2><br>
+<form action="/work" method="post">
+    <input placeholder="Addlist" type="text" name="list" required autocomplete="off" width="20PX">
+    <input type="submit" value="&#9989;">
+ 
+    
+</form>
+<br>
+<%var d;%>
+
+<% if(locals.todo){%>
+<ul>
+    <div class="overflow">
+    <%todo.forEach((d)=>{%>
+    
+        <label>
+            <input type="checkbox">
+            <span class="text"><%=d%></span>
+         </label>
+        
+   
+<%})%></div>
+</ul>
+
+<%}%>
+
+
+</div>
+
+<div class="main" id="home">
+    <h2>FOR HOME</h2><br>
+<form action="/home" method="post">
+    <input placeholder="Addlist" type="text" name="list" required autocomplete="off" width="20PX">
+    <input type="submit" value="&#9989;">
+ 
+    
+</form><br>
+<%var ho;%>
+<% if(locals.todo1){%>
+<ul>
+    <div class="overflow">
+    <%todo1.forEach((ho)=>{%>
+    
+        <label>
+            <input type="checkbox">
+            <span class="text"><%=ho%></span>
+         </label>
+   
+   
+<%})%> </div> 
+</ul>
+
+<%}%>
+
+</div>
+</div>
+<%- include("partials/footer.ejs") %>
